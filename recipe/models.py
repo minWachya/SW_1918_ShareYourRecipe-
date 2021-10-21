@@ -10,4 +10,11 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     # 내용 (무한대. 길이제한 없음)
     content = models.TextField()
+    
+    def __str__(self):
+        return f'[{self.pk}]{self.title}'
+
+    # 상세 페이지랑 연결
+    def get_absolute_url(self):
+        return f'/recipe/{self.pk}'
 

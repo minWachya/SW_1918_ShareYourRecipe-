@@ -39,3 +39,7 @@ def login(request):
 
 def mypost(request):
     return render(request, 'recipe/mypost.html')
+
+
+def writeRecipe(request):
+    return render(request, 'recipe/writeRecipe.html')

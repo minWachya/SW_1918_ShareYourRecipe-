@@ -9,14 +9,14 @@
         <link href="{% static 'recipe/fonts/font1.css' %}" rel="stylesheet" type="text/css" rel="stylesheet">
         <link href="{% static 'recipe/fonts/font2.css' %}" rel="stylesheet" type="text/css" rel="stylesheet">
         <!--부트스트랩 연결-->
-        <link href="{% static 'recipe/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen">
+        <!-- <link href="{% static 'recipe/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen"> -->
         
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Share your Recipe!</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'recipe/images/favicon.ico' %}" /><!---->
+        <link rel="icon" type="image/x-icon" href="{% static 'recipe/images/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -25,6 +25,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -44,7 +45,6 @@
                 </div>
             </div>
         </nav>
-
         <!-- Page Header-->
         <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
             <div class="container position-relative px-4 px-lg-5">
@@ -65,12 +65,33 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-<!--                       <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>-->
-                        <!-- 게시판 내용 -->
+                      <!-- <a href="#!"><img class="img-fluid" src="{% static 'recipe/images/post-sample-image.jpg' %}" alt="..." /></a> -->
+                        <!-- 레시피 내용 -->
+						
+                    <article id="post_area">
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- 제목 -->
+                            <h1 class="fw-bolder mb-1">{{ recipe.title }}</h1>
+                            <!--작설자-->
+                            <div class="text-muted fst-italic mb-2">Posted on {{ post.created_at | date:"yyyy-m-d h:m:s" }} by 작성자</div>
+                            <!-- Post categories-->
+                            <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a> -->
+                            <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
+                        </header>
+                        <!-- <img class="card-img-top" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random head image" /> -->
+                        <!-- 내용-->
+                        <section class="mb-5">
+                            <p>{{ recipe.content }}</p>
+                        </section>
+                    </article>
+						
+						
                     </div>
                 </div>
             </div>
         </article>
+		
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
