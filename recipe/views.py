@@ -9,6 +9,10 @@ class RecipeList(ListView):
     ordering = '-pk'
 
 
+class RecipeDetail(DetailView):
+    model = Recipe
+
+
 def index(request):
     return render(request, 'recipe/index.html')
 
@@ -31,3 +35,7 @@ def about(request):
 
 def login(request):
     return render(request, 'recipe/login.html')
+
+
+def mypost(request):
+    return render(request, 'recipe/mypost.html')

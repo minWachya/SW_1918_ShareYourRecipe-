@@ -119,3 +119,12 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'recipe', 'static')
+]
+
+# url 주소
+MEDIA_URL = '/media/'
+# 실제 이미지 저장된 장소
+MEDIA_ROOT = os.path.join(BASE_DIR, '_media')

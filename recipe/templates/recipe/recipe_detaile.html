@@ -16,7 +16,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Share your Recipe!</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'recipe/images/favicon.ico' %}" /><!---->
+        <link rel="icon" type="image/x-icon" href="{% static 'recipe/images/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -25,21 +25,22 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="https://sw-1918-share-your-recipe.run.goorm.io/">Let's cook!</a>
+                <a class="navbar-brand" href="index.html">Let's cook!</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://sw-1918-share-your-recipe.run.goorm.io/">Home<a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://sw-1918-share-your-recipe.run.goorm.io/about/">About</a></li>
-							 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://sw-1918-share-your-recipe.run.goorm.io/login/">Login</a></li>
-							
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="mypost.html">My Post</a></li>
+                    
                     </ul>
                 </div>
             </div>
@@ -50,9 +51,9 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>레시피 올리기</h1>
+                            <h1>레시피 둘러보기</h1>
                             <span class="meta">
-                                나만의 레시피를 공유하세요!
+                                다양한 레시피를 확인하세요!
                             </span>
                         </div>
                     </div>
@@ -64,43 +65,17 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-<!--                       <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>-->
-                        <form action="write_action.php" method="post">
-                            <table border="1" cellspacing="3" cellpadding="3" width="90%">
-                                <tr width="90%" bgcolor="grey">
-                                    <td width="20%" align="center" style="font:bold">My Recipe</td>
-                                    <td width="50%" bgcolor="grey">
-                                </tr>
-                                <tr width="90%">
-                                    <td align="center">글쓴이</td>
-                                    <td width="50%"><input type="text" name="name" style="width: 95%;"></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">Email</td>
-                                    <td><input type="text" name="email" style="width: 95%;"></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">제목</td>
-                                    <td><input type="text" name="title" style="width: 95%;"></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">내용</td>
-                                    <td><textarea name="content" style="width: 95%;height: 200px;">${board.content}</textarea></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" value="글작성">
-                                        <input type="button" value="글목록" onclick="window.location='/getListBoard.do'">
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-
+                      <a href="#!"><img class="img-fluid" src="{% static 'recipe/images/post-sample-image.jpg' %}" alt="..." /></a>
+                        <!-- 게시판 내용 -->
+						
+						
+						
+						
                     </div>
                 </div>
             </div>
         </article>
-
+		
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
