@@ -25,7 +25,8 @@ SECRET_KEY = '6h4-o)m$*rorhxr7d$0j^5wrq54l)x7&tj_l4(8mx)px_+s^r-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sw-1918-share-your-recipe.run.goorm.io', ]
+# ALLOWED_HOSTS = ['sw-1918-share-your-recipe.run.goorm.io' ] 수정
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
