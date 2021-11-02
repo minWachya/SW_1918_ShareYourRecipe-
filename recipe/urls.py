@@ -25,6 +25,9 @@ urlpatterns = [
     path('writeRecipe/', views.writeRecipe),
     # 레시피 삭제
     path('recipeDelete/<int:pk>/', views.RecipeDelete.as_view()),
+    # 레시피 수정
+    path('recipeUpdate/<int:pk>/', views.RecipeUpdate.as_view()),
+    #
     # 자신이 쓴 게시글 보기
     path('mypost/', views.mypost),
     # 테스트중

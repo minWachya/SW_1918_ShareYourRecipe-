@@ -17,7 +17,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>레시피 삭제 확인</h1>
+                            <h1>레시피 수정하기</h1>
                             <span class="meta">
                                 
                             </span>
@@ -28,18 +28,15 @@
         </header>
         
         
-        <section id='recipe_delete center-block'>
-            <div class='container center-block'>
-                <form method="POST" class='post-form container'>
-                    {% csrf_token %}
-                    
-                    <h3>정말로 {{ recipe.title }} 를(을) 삭제하시겠습니까?</h3>
-                    
-                    <input type='submit' class='save btn btn-default' value='네, 삭제할래요'/>
-                </form>
-            </div>
+        <from method='post' enctype="multipart/form-data">
+            {% csrf_token %}
             
-        </section>
+            <table>
+                {{ form }}
+            </table>
+            
+            <button type='submit' class='btn btn-primary float-right'>수정하기</button>
+        </from>
     
 		
         <!-- Footer-->
