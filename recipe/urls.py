@@ -5,19 +5,30 @@ from django.conf import settings
 
 urlpatterns = [
     # 클래스 호출
+    # 대문 페이지
     path('', views.index),
-    path('Search/', views.Search),
-    path('todayNews/', views.todayNews),
-    path('about/', views.about),
+    #
+    # 로그인
     path('login/', views.login),
-    # 레시피 올리기 post -> writeRecipe
-    # path('post/', views.RecipeList.as_view()),
-    path('writeRecipe/', views.writeRecipe),
-    # 레시피 보기 board -> recipe_list
-    # path('board/', views.board),
+    #
+    path('nutrient_list/', views.nutrient_list),
+    # 오늘의 식품 News
+    path('todayNews/', views.todayNews),
+    # About 페이지(소개 페이지)
+    path('about/', views.about),
+    #
+    # 레시피 목록
     path('recipe/', views.RecipeList.as_view()),
+    # 레시피 상세
     path('recipe/<int:pk>/', views.RecipeDetail.as_view()),
+    # 레시피 작성
+    path('writeRecipe/', views.writeRecipe),
+    # 레시피 삭제
+    path('recipeDelete/<int:pk>/', views.RecipeDelete.as_view()),
+    # 자신이 쓴 게시글 보기
     path('mypost/', views.mypost),
+    # 테스트중
+    path('nutrients/', views.add_nutrients)
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
