@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
+from django.forms.utils import ErrorList 
+from django import forms
 
 import csv
 from django.http import HttpResponse
@@ -19,33 +21,26 @@ class RecipeList(ListView):
 # 레시피 상세
 class RecipeDetail(DetailView):
     model = Recipe
-    
+
+
 # 레시피 삭제
 class RecipeDelete(LoginRequiredMixin, DeleteView):
     model = Recipe
     success_url = '/recipe/'
     context_object_name = 'recipe'
-    
+
 
 # 레시피 수정
 class RecipeUpdate(LoginRequiredMixin, UpdateView):
     model = Recipe
     fields = ['title', 'content']
-    
-    template_name = 'recipe/recipe_update_form.html'
-    
-    # 로그인 한 author로 자동 설정
-    def form_valid(self, form):
-        current_user = self.request.user
-        if current_user.is_authenticated :
-            form.instance.author = current_user
-        
-    def dispatch(self, request, *args, **kwargs) :
-        return super(RecipeUpdate, self).dispatch(request, *args, **kwargs)
-        # if request.user.is_authenticated and request.user == self.get_object().author:
-        #     return super(RecipeUpdate, self).dispatch(request, *args, **kwargs)
-        # else :
-        #     raise PermissionDenied
+    success_url = '/recipe/'
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and request.user == self.get_object().author:
+            return super(RecipeUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied
 
 
 # 대문 페이지

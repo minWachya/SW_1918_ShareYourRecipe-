@@ -50,10 +50,13 @@
                         <section class="mb-5">
                             <p>{{ recipe.content }}</p>
                         </section>
-                        
-                        <button type="button" class="btn btn-outline-warning" onclick="location.href='/recipeDelete/{{recipe.pk}}/'">삭제</button>
-                        <button type="button" class="btn btn-outline-info" onclick="location.href='/recipeUpdate/{{recipe.pk}}/'">수정</button>
                     
+                        <!--글 작성자만 삭제/수정 버튼 보이게-->
+                        {% if recipe.author == user %}
+                            <button type="button" class="btn btn-outline-warning" onclick="location.href='/recipeDelete/{{recipe.pk}}/'">삭제</button>
+                            <button type="button" class="btn btn-outline-info" onclick="location.href='/recipeUpdate/{{recipe.pk}}/'">수정</button>
+                        {% endif %}        
+                        
                     </article>
 						
 						
