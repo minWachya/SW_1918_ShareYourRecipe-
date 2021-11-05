@@ -23,7 +23,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipe.urls')),
-    path('accounts/', include('accounts.urls'))
 ]
 
 # ip 주소 외 이미지 접근하려는 선언 추가

@@ -16,23 +16,29 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>로그인</h1>
+                            <h1>Log In</h1>
                             <span class="meta">
-                                Recipe Share에 오신 걸 환영합니다!
+                                Welcome back to RECIPE SHARE! Please sign in!
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Post Content-->
+        <!-- 로그인 내용 -->
         <article class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-
-						<!-- 내용 -->
-						
+                        <form method="POST">
+                            {% csrf_token %}
+                            ID: <input name="username" type="text">
+                            <br/>
+                            PASSWORD: <input name="password" type="password">
+                            <br/><br/>
+                            <!-- submit 버튼 -->
+                            <button type="submit" class="btn btn-outline-primary float-right" value="Login">Log In</button>
+                        </form>
                     </div>
                 </div>
             </div>

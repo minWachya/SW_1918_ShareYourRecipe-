@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Recipe, Nutrient
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 from django.db.models import Q
@@ -6,6 +6,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.forms.utils import ErrorList 
 from django import forms
+
+from django.contrib import auth
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 import csv
 from django.http import HttpResponse
@@ -65,7 +69,49 @@ def about(request):
 
 # 로그인 페이지
 def login(request):
-    return render(request, 'recipe/login.html')
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+
+        # 로그인에 성공하면
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        # 로그인에 실패하면
+        else:
+            return render(request, 'recipe/login.html', {'error': 'Please Try Again'})
+    else:
+        return render(request, 'recipe/login.html')
+
+
+# 회원가입 페이지
+def signup(request):
+    if request.method == 'POST':
+        if request.POST['password1'] == request.POST['password2']:
+            user = User.objects.create_user(
+                                            username=request.POST['username'],
+                                            password=request.POST['password1'],
+                                            email=request.POST['email'],
+                                            )
+            # 소셜로그인으로 가져온 정보를 다른 곳에 저장한다면 맨 뒤의 ModelBackend 부분을 수정
+            #auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            auth.login(request, user)
+            return redirect('/')
+        else:  # 비밀번호 2개가 같지 않으면
+            return render(request, 'recipe/signup.html')
+    return render(request, 'recipe/signup.html')
+
+    '''
+    form = UserCreationForm
+    return render(request, 'signup.html', {'form':form})
+    '''
+
+
+# 로그아웃
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
 
 
 # 내가 쓴 게시글 확인 페이지

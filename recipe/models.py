@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-
 # 레시피
 class Recipe(models.Model):
     # 제목 (30자로 최대 길이 제한)

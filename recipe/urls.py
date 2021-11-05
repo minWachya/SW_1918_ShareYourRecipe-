@@ -7,9 +7,12 @@ urlpatterns = [
     # 클래스 호출
     # 대문 페이지
     path('', views.index),
-    #
+    # 회원가입
+    path('signup/', views.signup),
     # 로그인
     path('login/', views.login),
+    # 로그아웃
+    # path('logout/', views.logout, name='logout'),
     #
     path('nutrient_list/', views.nutrient_list),
     # 오늘의 식품 News
