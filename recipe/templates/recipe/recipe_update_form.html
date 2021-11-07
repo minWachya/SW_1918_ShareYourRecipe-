@@ -28,13 +28,13 @@
         </header>
         
         
-        <from method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{ form }}
             </table>
-            <button type="submit" class="btn btn-primary float-right" >수정 완료?!!??!?!?!??</button>
-        </from>
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
     
 		
         <!-- Footer-->

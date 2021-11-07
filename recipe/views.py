@@ -38,9 +38,13 @@ class RecipeDelete(LoginRequiredMixin, DeleteView):
 class RecipeUpdate(LoginRequiredMixin, UpdateView):
     model = Recipe
     fields = ['title', 'content']
+    
+    template_name = 'recipe/recipe_update_form.html'
+    
     success_url = '/recipe/'
 
     def dispatch(self, request, *args, **kwargs):
+        # 로그인 되어져있는지 + 로그인된 사용자와 글 작성자가 같은지
         if request.user.is_authenticated and request.user == self.get_object().author:
             return super(RecipeUpdate, self).dispatch(request, *args, **kwargs)
         else:
