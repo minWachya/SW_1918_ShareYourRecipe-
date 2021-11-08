@@ -7,14 +7,16 @@ from django.contrib.auth.models import User
 class Recipe(models.Model):
     # 제목 (30자로 최대 길이 제한)
     title = models.CharField(max_length=30)
-    # 생성 날짜, 시간 (지동 생성)
+    # 생성 날짜, 시간 (자동 생성)
     created_at = models.DateTimeField(auto_now_add=True)
+    # 수정 날짜, 시간
+    updated_at = models.DateTimeField(auto_now=True)
     # 내용 (무한대. 길이제한 없음)
     content = models.TextField()
     # 작성자의 uid
     #uid = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     # 작성자
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f'[{self.pk}]{self.title}'

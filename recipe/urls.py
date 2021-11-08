@@ -33,7 +33,7 @@ urlpatterns = [
     #
     # 자신이 쓴 게시글 보기
     path('mypost/', views.mypost),
-    # 테스트중
+    # 식품 영양 정보 csv파일을 DB로 옮기는 페이지
     path('nutrients/', views.add_nutrients)
 ]
 
