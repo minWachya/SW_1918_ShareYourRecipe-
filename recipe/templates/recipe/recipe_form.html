@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- 홈 -->
-<html lang="en">
+<html lang="ko">
     <head>
         {% include 'recipe/header.html' %}
     </head>
@@ -27,18 +27,23 @@
             </div>
         </header>
         
-        
-        <from method='post' enctype="multipart/form-data">
-            {% csrf_token %}
-            
-            <table>
-                {{ form }}
-            </table>
-            
-            <button type='submit' class='btn btn-primary float-right'>작성 완료</button>
-        </from>
-    
-		
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h2>Post your Recipe</h2>
+                    <hr/>
+                    <form method='post' enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <table>
+                            {{ form }}
+                        </table>
+
+                        <button type='submit' class='btn btn-primary float-right'>Submit</button>
+                    </form>
+                </div>
+            </div>
+		</div>
         <!-- Footer-->
         {% include 'recipe/footer.html' %}
     </body>
