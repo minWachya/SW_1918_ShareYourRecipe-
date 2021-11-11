@@ -55,7 +55,8 @@
                         {% if recipe.author == user %}
                             <button type="button" class="btn btn-outline-warning" onclick="location.href='/recipeDelete/{{recipe.pk}}/'">삭제</button>
                             <button type="button" class="btn btn-outline-info" onclick="location.href='/recipeUpdate/{{recipe.pk}}/'">수정</button>
-                        {% endif %}        
+                        {% endif %}
+                        <button type="button" class="btn btn-outline-success" onclick="location.href='/recipe/'">목록</button>
                         
                     </article>
 						
