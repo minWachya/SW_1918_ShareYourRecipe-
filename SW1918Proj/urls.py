@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from recipe import views
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -24,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipe.urls')),
     path('accounts/', include('accounts.urls')),
+    path('', views.index, name='index'),  # '/' 에 해당되는 path
 ]
 
 # ip 주소 외 이미지 접근하려는 선언 추가

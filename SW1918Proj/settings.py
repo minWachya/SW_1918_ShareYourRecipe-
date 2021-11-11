@@ -146,3 +146,9 @@ SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+# 로그인 성공 후 이동하는 URL: home
+LOGIN_REDIRECT_URL = '/'
+
+# 로그아웃 후 이동하는 URL
+LOGOUT_REDIRECT_URL = '/'
+
