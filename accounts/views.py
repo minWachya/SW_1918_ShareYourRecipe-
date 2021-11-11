@@ -5,7 +5,7 @@ from django.contrib import auth  # 계정에 대한 권한
 
 # 회원가입
 def signup(request):
-    # POST 요청이 왔을 때, 입력한 두 비밀번호가 같으면 새로운 USER 생성
+    # POST 요청이 왔을 때, 입력한 두 비밀번호가 같으면 새로운 USER 만듦
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(
