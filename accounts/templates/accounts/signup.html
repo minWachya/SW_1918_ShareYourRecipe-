@@ -14,14 +14,13 @@
                     <h4>SIGN UP</h4>
                 </div>
                 <div class="col-8 text-right">
-                    <span> 회원이세요? <a href="{% url 'accounts:login' %}">GO LOG-IN</a></span>
+                    <span> 회원이세요?  <a href="{% url 'accounts:login' %}">Go to LOG-IN</a></span>
                 </div>
             </div>
             
-            <!--<form method="post" class="post-form" action="{% url 'accounts:signup' %}">-->
             <form method="post" class="post-form">
                 {% csrf_token %}
-                {% include "form_errors.html" %}
+                {% include "accounts/form_errors.html" %}
                 <div class="form-group">
                     <label for="username">USERNAME</label>
                     <input type="text" class="form-control" name="username" id="username"

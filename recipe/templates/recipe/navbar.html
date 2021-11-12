@@ -11,16 +11,18 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home<a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about/">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="accounts/signup/">SignUp</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="accounts/signup/">SignUp</a></li> -->
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'accounts:signup' %}">SignUp</a></li>
                         <!-- 방문자가 로그인했으면 이름 + 로그아웃 버튼 표시 -->
                         {% if user.is_authenticated %}
                             <!-- 로그아웃 승인처리 -->
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="javascript: {document.getElementById('logout').submit()}">{{ user.username }} Log Out</a></li>
-                            <form id='logout' method="POST" action="{% url 'logout' %}">
+                            <form id='logout' method="POST" action="{% url 'accounts:logout' %}">
                                 {% csrf_token %}<input type="hidden" />
                             </form>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="accounts/login/">Log In</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="accounts/login/">Log In</a></li> -->
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'accounts:login' %}">Log In</a></li>
                         {% endif %}
                     </ul>
                             
