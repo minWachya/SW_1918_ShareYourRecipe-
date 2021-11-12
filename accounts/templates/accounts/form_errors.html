@@ -3,14 +3,24 @@
     {% for field in form %}
         {% for error in field.errors %}  <!-- 필드 오류를 출력: 값 누락, 필드 형식 불일치 -->
             <div class="alert alert-danger">
-                <strong>{{ field.label }} is required</strong>
-                <!--{{ error }}-->
+                {% if "This field" in error %}
+                    <strong>{{ field.label }} is required</strong>
+                {% else %}
+                    <strong>{{ error | escape }}</strong>
+                {% endif %}
+                <!--  {{ form.errors.as_data }}  {{ field.label }} is required-->
             </div>
         {% endfor %}
     {% endfor %}
-    {% for error in form.non_field_errors %}   <!-- 넌필드 오류를 출력: 그 외의 이유 -->
+                
+    {% for error in form.non_field_errors %}   <!-- 넌필드 오류를 출력: 로그인 실패 시 -->
         <div class="alert alert-danger">
-            <strong>{{ error }}</strong>
-        </div>
+                {% if "This field" in error %}
+                    <strong>{{ field.label }} is required</strong>
+                {% else %}
+                    <strong>{{ error | escape }}</strong>
+                {% endif %}
+                <!--  {{ form.errors.as_data }}  {{ field.label }} is required-->
+            </div>
     {% endfor %}
-{% endif %}
+{% endif %} 

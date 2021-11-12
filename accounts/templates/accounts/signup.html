@@ -7,14 +7,14 @@
     </head>
     
     <body>
-        <div class="container my-3">
+        <div class="container my-5">
             
             <div class="row my-3">
                 <div class="col-4">
                     <h4>SIGN UP</h4>
                 </div>
-                <div class="col-8 text-right">
-                    <span> 회원이세요?  <a href="{% url 'accounts:login' %}">Go to LOG-IN</a></span>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small">회원이신가요?  <a href="{% url 'accounts:login' %}">Go to LOG-IN</a></p>
                 </div>
             </div>
             
@@ -31,6 +31,7 @@
                     <label for="password1">PASSWORD</label>
                     <input type="password" class="form-control" name="password1" id="password1"
                            value="{{ form.password1.value|default_if_none:'' }}">
+                    <!-- 영문, 숫자 포함 8자 이상 -->
                 </div>
             
                 <div class="form-group">
