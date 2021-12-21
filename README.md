@@ -1,7 +1,7 @@
 # **💛\[1918팀\] Share Your Recipe!💛**
 
 -   2021-2 소프트웨어 공학 팀 프로젝트: **개발 방법론 위주 프로젝트**
--   더 자세한 내용은 [구글 드라이브](https://drive.google.com/drive/u/1/folders/0AEZ6_5w6wjAFUk9PVA)에서 확인하실 수 있습니다.
+-   더 자세한 내용은 아래 목차 4-2의 _문서_ 에서 확인하실 수 있습니다.
 
 ---
 
@@ -152,7 +152,7 @@
 ![결과물_사진2](https://user-images.githubusercontent.com/61674991/146884250-b7f3c68d-5648-4176-aa25-309fe5488bd4.png)
 
 
-**4-2, 문서([구글 드라이브 링크](https://drive.google.com/drive/u/1/folders/0AEZ6_5w6wjAFUk9PVA))**
+**4-2, 문서 **
 
 1.  [수행계획서](https://docs.google.com/document/d/1AkL9s3A_UnxywnPjAKztkgjIgS64OijKaWDJ1Hi7Ffg/edit?usp=sharing)
 2.  [회의록](https://docs.google.com/spreadsheets/d/1efsfv7KjGN_QKApZw-XoXTU3IxGY87p0i-u8KbN0CNs/edit?usp=sharing)
